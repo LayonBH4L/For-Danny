@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -88,6 +87,21 @@ const MagicalCard = () => {
                 Fechar
               </Button>
             </div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+              <p className="text-love-dark text-lg font-medium mb-4 leading-relaxed">
+                Querido(a),
+              </p>
+              <p className="text-love-dark text-md mb-6 leading-relaxed">
+                Em cada batida do meu coração,<br/>
+                Em cada flor que desabrocha,<br/>
+                Penso em você com carinho e gratidão.<br/>
+                Você é especial e ilumina meus dias<br/>
+                Com sua doce presença.
+              </p>
+              <p className="text-love-dark text-md font-medium">
+                Com amor ♥
+              </p>
+            </div>
           </div>
         </div>
         
@@ -109,7 +123,7 @@ const MagicalCard = () => {
               {/* Center heart */}
               <Heart size={100} animated={showContent} />
               
-              {/* Surrounding flowers */}
+              {/* Surrounding flowers - Adicionando mais flores */}
               <div className="absolute top-[-35px] left-[10px]">
                 <Flower size={30} delay={0.3} variant="detailed" />
               </div>
@@ -128,6 +142,16 @@ const MagicalCard = () => {
               <div className="absolute bottom-[-20px] right-[10px]">
                 <Flower size={32} delay={0.7} variant="detailed" />
               </div>
+              {/* Novas flores adicionadas */}
+              <div className="absolute top-[-45px] right-[20px]">
+                <Flower size={20} delay={0.8} variant="detailed" />
+              </div>
+              <div className="absolute bottom-[-40px] right-[-20px]">
+                <Flower size={25} color="text-flower-light" delay={0.9} variant="detailed" />
+              </div>
+              <div className="absolute top-[0px] left-[-50px]">
+                <Flower size={18} delay={1.0} variant="detailed" />
+              </div>
             </div>
             
             {/* Message */}
@@ -141,14 +165,14 @@ const MagicalCard = () => {
             <ParticleEffect 
               isActive={showContent} 
               color="bg-flower-light" 
-              count={15}
-              duration={3000}
+              count={25}
+              duration={3500}
             />
             <ParticleEffect 
               isActive={showContent} 
               color="bg-love-light" 
-              count={15}
-              duration={2500}
+              count={25}
+              duration={3000}
             />
           </div>
         </div>
