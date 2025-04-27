@@ -89,14 +89,15 @@ const MagicalCard = () => {
             </div>
             <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
               <p className="text-purple-900 text-2xl font-medium mb-6 leading-relaxed font-serif">
-                Querido(a),
+                Querida Danny,
               </p>
               <p className="text-purple-800 text-lg mb-8 leading-relaxed">
                 Em cada batida do meu coração,<br/>
                 Em cada flor que desabrocha,<br/>
                 Penso em você com carinho e gratidão.<br/>
-                Você é especial e ilumina meus dias<br/>
-                Com sua doce presença.
+                Você é a luz que clareia meus caminhos,<br/>
+                A calma que acolhe minha alma,<br/>
+                E a razão dos meus sorrisos.
               </p>
               <p className="text-purple-900 text-lg font-medium italic">
                 Com amor ♥
