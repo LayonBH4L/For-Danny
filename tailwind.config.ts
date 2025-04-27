@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				love: {
+					'light': '#FFDEE2',
+					'medium': '#ff719a',
+					'dark': '#ea384c',
+					'paper': '#fff9f9'
+				},
+				flower: {
+					'light': '#D6BCFA',
+					'medium': '#9b87f5',
+					'dark': '#7E69AB'
 				}
 			},
 			borderRadius: {
@@ -84,11 +96,66 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulse-glow': {
+					'0%, 100%': { opacity: '1', transform: 'scale(1)' },
+					'50%': { opacity: '0.8', transform: 'scale(1.05)' }
+				},
+				'beat': {
+					'0%, 100%': { transform: 'scale(1)' },
+					'25%': { transform: 'scale(1.1)' },
+					'40%': { transform: 'scale(0.9)' },
+					'60%': { transform: 'scale(1.05)' }
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'bloom': {
+					'0%': { transform: 'scale(0)', opacity: '0' },
+					'50%': { transform: 'scale(0.5)', opacity: '0.5' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				'fade-up': {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'sparkle': {
+					'0%': { opacity: '0', transform: 'scale(0)' },
+					'50%': { opacity: '1', transform: 'scale(1)' },
+					'100%': { opacity: '0', transform: 'scale(0)' }
+				},
+				'card-open': {
+					'0%': { transform: 'rotateY(0deg)' },
+					'100%': { transform: 'rotateY(-150deg)' }
+				},
+				'card-close': {
+					'0%': { transform: 'rotateY(-150deg)' },
+					'100%': { transform: 'rotateY(0deg)' }
+				},
+				'particle-up': {
+					'0%': { transform: 'translateY(0) scale(0)', opacity: '0' },
+					'50%': { transform: 'translateY(-50px) scale(1)', opacity: '1' },
+					'100%': { transform: 'translateY(-100px) scale(0)', opacity: '0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'beat': 'beat 1.5s ease-in-out infinite',
+				'spin-slow': 'spin-slow 20s linear infinite',
+				'bloom': 'bloom 1s ease-out forwards',
+				'fade-up': 'fade-up 0.8s ease-out',
+				'sparkle': 'sparkle 2s ease-in-out infinite',
+				'card-open': 'card-open 1.5s ease-out forwards',
+				'card-close': 'card-close 1.5s ease-out forwards',
+				'particle-up': 'particle-up 2s ease-out infinite'
 			}
 		}
 	},
