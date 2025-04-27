@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -126,15 +125,16 @@ const MagicalCard = () => {
                 {[...Array(12)].map((_, i) => (
                   <div
                     key={i}
-                    className="absolute"
+                    className="absolute animate-particle-up"
                     style={{
                       transform: `rotate(${i * 30}deg) translateX(100px)`,
+                      animationDelay: `${i * 0.15}s`,
+                      animationDuration: '4s'
                     }}
                   >
                     <Flower 
                       size={24} 
-                      delay={i * 0.15} 
-                      variant={i % 3 === 0 ? 'star' : i % 2 === 0 ? 'round' : 'detailed'} 
+                      variant={i % 3 === 0 ? 'star' : i % 2 === 0 ? 'round' : 'detailed'}
                       color={i % 2 === 0 ? 'text-flower-light' : 'text-flower-medium'} 
                     />
                   </div>
@@ -142,6 +142,7 @@ const MagicalCard = () => {
               </div>
               
               {/* Inner rotating ring */}
+              {/*
               <div className="absolute w-32 h-32 animate-spin-slow opacity-80" style={{ animationDirection: 'reverse' }}>
                 {[...Array(8)].map((_, i) => (
                   <div
@@ -160,37 +161,38 @@ const MagicalCard = () => {
                   </div>
                 ))}
               </div>
+              */}
               
               {/* Center heart with glow */}
-              <div className="relative">
+              <div className="relative z-10">
                 <GlowEffect size="lg" color="bg-purple-300/50" animated={true} />
                 <Heart size={100} animated={showContent} />
               </div>
               
-              {/* Floating flowers */}
+              {/* Floating flowers - now with upward animation */}
               {[...Array(15)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute animate-float"
+                  className="absolute animate-particle-up"
                   style={{
-                    top: `${Math.random() * 100}%`,
+                    bottom: '0',
                     left: `${Math.random() * 100}%`,
                     animationDelay: `${i * 0.3}s`,
-                    transform: `scale(${0.7 + Math.random() * 0.6})`
+                    animationDuration: `${3 + Math.random() * 2}s`,
+                    opacity: 0.7 + Math.random() * 0.3
                   }}
                 >
                   <Flower
                     size={20 + Math.random() * 20}
-                    variant={['detailed', 'star', 'round'][Math.floor(Math.random() * 3)]}
+                    variant={['detailed', 'star', 'round'][Math.floor(Math.random() * 3)] as 'detailed' | 'star' | 'round'}
                     color={['text-flower-light', 'text-flower-medium', 'text-flower-dark'][Math.floor(Math.random() * 3)]}
-                    delay={i * 0.2}
                   />
                 </div>
               ))}
             </div>
             
             {/* Message with enhanced styling */}
-            <div className="mt-12 text-center max-w-xs">
+            <div className="mt-12 text-center max-w-xs z-10">
               <p className="text-xl font-medium text-purple-800 font-serif">
                 De todo o meu coração para você
               </p>
