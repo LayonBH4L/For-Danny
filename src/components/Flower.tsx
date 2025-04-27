@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Flower as FlowerIcon } from 'lucide-react';
+import { Flower as FlowerIcon, Flower2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type FlowerProps = {
@@ -8,7 +8,7 @@ type FlowerProps = {
   color?: string;
   className?: string;
   delay?: number;
-  variant?: 'simple' | 'detailed';
+  variant?: 'simple' | 'detailed' | 'star' | 'round';
 };
 
 const Flower = ({
@@ -33,8 +33,64 @@ const Flower = ({
       />
     );
   }
+
+  if (variant === 'star') {
+    return (
+      <Flower2
+        size={size}
+        className={cn(
+          color,
+          'animate-bloom',
+          className
+        )}
+        style={{
+          animationDelay: `${delay}s`
+        }}
+      />
+    );
+  }
   
-  // Detailed flower with petals
+  if (variant === 'round') {
+    return (
+      <div 
+        className={cn(
+          "relative inline-flex items-center justify-center",
+          'animate-bloom',
+          className
+        )}
+        style={{
+          width: size,
+          height: size,
+          animationDelay: `${delay}s`
+        }}
+      >
+        {/* Center */}
+        <div className={cn(
+          "absolute rounded-full w-1/3 h-1/3",
+          color === 'text-flower-medium' ? 'bg-flower-dark' : 'bg-flower-light'
+        )}/>
+        
+        {/* Round petals */}
+        {[...Array(6)].map((_, i) => (
+          <div 
+            key={i}
+            className={cn(
+              "absolute rounded-full",
+              color === 'text-flower-medium' ? 'bg-flower-medium' : 'bg-flower-light'
+            )}
+            style={{
+              width: size * 0.4,
+              height: size * 0.4,
+              transformOrigin: '50% 50%',
+              transform: `rotate(${60 * i}deg) translateX(${size/4}px)`
+            }}
+          />
+        ))}
+      </div>
+    );
+  }
+  
+  // Detailed flower with pointed petals
   return (
     <div 
       className={cn(
@@ -51,20 +107,23 @@ const Flower = ({
       {/* Center of flower */}
       <div className={cn(
         "absolute rounded-full w-1/3 h-1/3",
-        color === 'text-flower-medium' ? 'bg-flower-dark' : 'bg-flower-medium'
+        color === 'text-flower-medium' ? 'bg-flower-dark' : 'bg-flower-light'
       )}/>
       
-      {/* Petals */}
+      {/* Pointed petals */}
       {[...Array(8)].map((_, i) => (
         <div 
           key={i}
           className={cn(
-            "absolute rounded-full w-1/2 h-1/4",
-            color === 'text-flower-medium' ? 'bg-flower-medium' : 'bg-flower-light'
+            "absolute",
+            color === 'text-flower-medium' ? 'bg-flower-medium' : 'bg-flower-light',
+            "rounded-t-full"
           )}
           style={{
-            transformOrigin: '50% 50%',
-            transform: `rotate(${45 * i}deg) translateX(${size/4}px)`
+            width: size * 0.25,
+            height: size * 0.5,
+            transformOrigin: '50% 100%',
+            transform: `rotate(${45 * i}deg) translateY(-${size/4}px)`
           }}
         />
       ))}

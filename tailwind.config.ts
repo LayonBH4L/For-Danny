@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,15 +63,15 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				love: {
-					'light': '#FFDEE2',
-					'medium': '#ff719a',
-					'dark': '#ea384c',
-					'paper': '#fff9f9'
+					'light': '#F5E6FA',
+					'medium': '#D946EF',
+					'dark': '#9333EA',
+					'paper': '#FDF4FF'
 				},
 				flower: {
-					'light': '#D6BCFA',
-					'medium': '#9b87f5',
-					'dark': '#7E69AB'
+					'light': '#E9D5FF',
+					'medium': '#C084FC',
+					'dark': '#9333EA'
 				}
 			},
 			borderRadius: {
